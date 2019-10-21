@@ -107,11 +107,11 @@ struct Seasons : Module {
 
 
 		// Reset counter
-		if (resetting)
+		if (resetting == true)
 			stepindex = 0;
 
 		// Advance step
-		if (stepping and resetting)
+		if (stepping == true and resetting == false)
 			stepindex = (stepindex + 1) % seq_length;
 
 		// Check flip-flop trigger input (MODE)
