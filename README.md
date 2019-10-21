@@ -1,16 +1,10 @@
-# Spektro Audio - VCV Rack Plugins
+# Spektro Audio - Seasons
 
 # About
 
-These are modules developed for [VCV Rack](http://vcvrack.com) by Spektro Audio.   
+This module was developed for [VCV Rack](http://vcvrack.com) by Spektro Audio.   
 
-To install them, go to [https://vcvrack.com/plugins.html](https://vcvrack.com/plugins.html), search for Spektro Audio and click on the "+ Free" button to add them to your VCV account.
-
-----
-
-# Module List
-
-- Seasons
+To install it, go to [https://vcvrack.com/plugins.html](https://vcvrack.com/plugins.html), search for Spektro Audio and click on the "+ Free" button to add them to your VCV account.
 
 ---
 
