@@ -2,7 +2,8 @@
 
 ![Seasons](/Seasons.jpg)
 
-Seasons is a sequencer designed to modulate multiple parameters at once.  
+Seasons is a 4 step sequencer designed to modulate multiple parameters at once. 
+
 In Normal mode, Seasons works as a 4-stage step sequencer. Each of the four steps / seasons is controlled by one of the steps knobs. The four outputs output a different stage of the sequence but they all advance in the same order (akin to a Shift Register). Imagine of those scenes on films when they show the 4 seasons simultaniously, one on each quarter of the screen.  
 
 
