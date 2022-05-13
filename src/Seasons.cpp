@@ -38,13 +38,16 @@ struct Seasons : Module {
 
 	Seasons() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
-		configParam(OUTPUT_MODE, 0.0f, 1.0f, 0.0f, "Output Mode");
-		configParam(MODE_BUTTON , 0.0f, 1.0f, 0.0f, "Mode");
+		configSwitch(OUTPUT_MODE, 0.f, 1.f, 0.f, "Output Mode", { "Bipolar", "Unipolar" });
+		configButton(MODE_BUTTON, "Mode");
 		configParam(STEP1_PARAM, 0.0f, 10.0f, 0.0f, "Step 1");
 		configParam(STEP2_PARAM, 0.0f, 10.0f, 1.0f, "Step 2");
 		configParam(STEP3_PARAM, 0.0f, 10.0f, 3.0f, "Step 3");
 		configParam(STEP4_PARAM, 0.0f, 10.0f, 4.0f, "Step 4");
 		configParam(OUT_GAIN, 0.0f, 1.0f, 0.5f, "Gain");
+		configInput(IN1_INPUT, "Ext. Clock");
+		configInput(RESET_INPUT, "Reset");
+		configInput(FLIP_INPUT, "Mode flip");
 	}
 
 	int stepindex= 0;
@@ -60,8 +63,13 @@ struct Seasons : Module {
 
 	void process(const ProcessArgs& args) override {
 
-			// Fill Step Array
-		float step_values[] = {params[STEP1_PARAM].getValue(), params[STEP2_PARAM].getValue(), params[STEP3_PARAM].getValue(), params[STEP4_PARAM].getValue(), 10.0f - params[STEP4_PARAM].getValue(), 10.0f - params[STEP3_PARAM].getValue(), 10.0f - params[STEP2_PARAM].getValue(), 10.0f - params[STEP1_PARAM].getValue()};
+		// Fill Step Array
+		float step_values[] = {
+			params[STEP1_PARAM].getValue(), params[STEP2_PARAM].getValue(), 
+			params[STEP3_PARAM].getValue(), params[STEP4_PARAM].getValue(), 
+			10.0f - params[STEP4_PARAM].getValue(), 10.0f - params[STEP3_PARAM].getValue(), 
+			10.0f - params[STEP2_PARAM].getValue(), 10.0f - params[STEP1_PARAM].getValue()
+		};
 
 		// Set counter range
 		if (params[OUTPUT_MODE].getValue() == 1.0) {
@@ -132,7 +140,7 @@ struct Seasons : Module {
 struct SeasonsWidget : ModuleWidget {
 	SeasonsWidget(Seasons* module) {
 		setModule(module);
-		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Seasons.svg")));
+		setPanel(createPanel(asset::plugin(pluginInstance, "res/Seasons.svg")));
 
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));

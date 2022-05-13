@@ -1,8 +1,8 @@
 {
   "slug": "SA-Seasons",
   "name": "Seasons",
-  "version": "1.0.0",
-  "license": "GPL-3.0-only",
+  "version": "2.0.0",
+  "license": "GNU-GPL-v3.0",
   "brand": "Spektro Audio",
   "author": "Spektro Audio",
   "authorEmail": "contact@spektroaudio.com",
